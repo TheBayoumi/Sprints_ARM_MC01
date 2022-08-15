@@ -2,68 +2,76 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : std_types.h                                               *
+ *      File        : platform_types.h                                          *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
  *      Module      : -                                                         *
  *                                                                              *
- *      Description : Provision of Standard Types                               *
+ *      Description : Contains types that dependent on platform - CortexM4      *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
-#ifndef STD_TYPES_H_
-#define STD_TYPES_H_
+#ifndef PLATFORM_TYPES_H_
+#define PLATFORM_TYPES_H_
 
 /********************************************************************************
  *                                    INCLUDES                                  *
  ********************************************************************************/
 
-#include "platform_types.h"
+
 
 /********************************************************************************
  *                              GLOBAL CONSTANT MACROS                          *
  ********************************************************************************/
 
-#define STD_HIGH        (1u)            /* Physical state 5V or 3.3V */
-#define STD_LOW         (0u)            /* Physical state 0V */
+#define WORD_LENGHT_BIT             (32u)
+#define WORD_LENGHT_BYTE            (4u)
 
-#define STD_ACTIVE      (1u)            /* Logical state active */
-#define STD_IDLE        (0u)            /* Logical state idle */
+#define BIG_ENDIAN_BIT_ORDER        (0u)            /* Big endian bit ordering */
+#define LITTLE_ENDIAN_BIT_ORDER     (1u)            /* Little endian bit ordering */
 
-#define STD_ON          (1u)
-#define STD_OFF         (0u)
+#define BIG_ENDIAN_BYTE_ORDER       (0u)           /* Big endian byte ordering */
+#define LITTLE_ENDIAN_BYTE_ORDER    (1u)           /* Little endian byte ordering */
 
-#define STD_ENABLE      (1u)
-#define STD_DISABLE     (0u)
+#define CPU_BIT_ORDER       LITTLE_ENDIAN_BIT_ORDER     /*little endian bit ordering*/
+#define CPU_BYTE_ORDER      LITTLE_ENDIAN_BYTE_ORDER    /*little endian byte ordering*/
 
-/* NULL_PTR define with a void pointer to zero definition*/
-#define NULL_PTR ((void *)0)
+/* Boolean Values */
+#ifndef FALSE
+#define FALSE                       (0u)
+#endif
 
-/* INLINE  define for abstraction of the keyword inline*/
-#define INLINE          inline
-
-/* LOCAL_INLINE define for abstraction of the keyword inline in functions with "static" scope.
-   Different compilers may require a different sequence of the keywords "static" and "inline" 
-   if this is supported at all. */
-#define LOCAL_INLINE    static inline
+#ifndef TRUE
+#define TRUE                        (1u)
+#endif
 
 /********************************************************************************
  *                         GLOBAL DATA TYPES AND STRUCTURE                      *
  ********************************************************************************/
 
-typedef enum
-{
-    E_OK,
-    E_NOT_OK
-}STD_ReturnType;
+/* Boolean Data Type */
+typedef unsigned char boolean;
 
-typedef void(*ptr_STD_ReturnType)(void);
+typedef unsigned char uint8; /*           0 .. 255              */
+typedef signed char sint8;   /*        -128 .. +127             */
 
-#endif /* STD_TYPE_H_ */
+typedef unsigned short uint16; /*           0 .. 65535            */
+typedef signed short sint16;   /*      -32768 .. +32767           */
+
+typedef unsigned long uint32; /*           0 .. 4294967295       */
+typedef signed long sint32;   /* -2147483648 .. +2147483647      */
+
+typedef unsigned long long uint64; /*       0 .. 18446744073709551615  */
+typedef signed long long sint64;   /* -9223372036854775808 .. 9223372036854775807 */
+
+typedef float float32;
+typedef double float64;
+
+#endif /* PLATFORM_TYPES_H_ */
 
 /********************************************************************************
- *                              END OF FILE : std_types.h                       *
+ *                          END OF FILE : platform_types.h                      *
  ********************************************************************************/

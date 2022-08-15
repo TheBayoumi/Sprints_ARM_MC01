@@ -1,48 +1,53 @@
 /********************************************************************************
- *                            * FILE DESCRIPTION *				*
- *                            ********************				*
- *										*
- * \file : Common_Macros.h							*
- *										*
- * \brief : Common - Macros							*
- *										*
- * \details : Commonly used Macros						*
- *										*
- * Author: Mahmoud Bayoumi							*
- *										*
+ *                            * FILE DESCRIPTION *                              *
+ *                            ********************                              *
+ *                                                                              *
+ *      File        : Common_Macros.h                                           *
+ *                                                                              *
+ *      Component   : -                                                         *
+ *                                                                              *
+ *      Module      : -                                                         *
+ *                                                                              *
+ *      Description : Commonly used Macros                                      *
+ *                                                                              *
+ *      Author      : Mahmoud Bayoumi                                           *
+ *                                                                              *
  ********************************************************************************/
 
 #ifndef COMMON_MACROS_
 #define COMMON_MACROS_
 
 /********************************************************************************
- *			 LOCAL MACROS CONSTANT\FUNCTION 			*
+ *                                    INCLUDES                                  *
+ ********************************************************************************/
+
+#include "std_types.h"
+
+/********************************************************************************
+ *                          GLOBAL MACROS CONSTANT\FUNCTION                     *
  ********************************************************************************/
 
 
 /* Set a certain bit in any register */
-#define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+#define SET_BIT(REG,BIT) (REG|=((uint32)1<<BIT))
 
 /* Clear a certain bit in any register */
-#define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+#define CLEAR_BIT(REG,BIT) (REG&=(~((uint32)1<<BIT)))
 
 /* Toggle a certain bit in any register */
-#define TOGGLE_BIT(REG,BIT) (REG^=(1<<BIT))
-
-/* Rotate right the register value with specific number of rotates */
-#define ROR(REG,num) ( REG= (REG>>num) | (REG<<(8-num)) )
-
-/* Rotate left the register value with specific number of rotates */
-#define ROL(REG,num) ( REG= (REG<<num) | (REG>>(8-num)) )
+#define TOGGLE_BIT(REG,BIT) (REG^=((uint32)1<<BIT))
 
 /* Check if a specific bit is set in any register and return true if yes */
-#define BIT_IS_SET(REG,BIT) ( REG & (1<<BIT) )
+#define BIT_IS_SET(REG,BIT) ( REG & ((uint32)1<<BIT) )
 
 /* Check if a specific bit is cleared in any register and return true if yes */
-#define BIT_IS_CLEAR(REG,BIT) ( !(REG & (1<<BIT)) )
+#define BIT_IS_CLEAR(REG,BIT) ( !(REG & ((uint32)1<<BIT)) )
+
+/* Get a certain bit in any register */
+#define GET_BIT (REG,BIT) ((REG>>BIT)&(0x01u))
 
 #endif
 
 /********************************************************************************
- *			  END OF FILE : Common_Macros.h				*
+ *                              END OF FILE : Common_Macros.h                   *
  ********************************************************************************/
