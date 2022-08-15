@@ -1,23 +1,22 @@
 /********************************************************************************
- *                            * FILE DESCRIPTION *				*
- *                            ********************				*
- *										*
- * \file : std_types.h								*
- *										*
- * \brief : Common - Platform Types Abstraction					*
- *										*
- * \details : Standerd Types							*
- *										*
- * Author: Mahmoud Bayoumi							*
- *										*
+ *                            * FILE DESCRIPTION *                              *
+ *                            ********************                              *
+ *                                                                              *
+ * \file : std_types.h                                                          *
+ *                                                                              *
+ * \brief : Common - Platform Types Abstraction                                 *
+ *                                                                              *
+ * \details : Standerd Types                                                    *
+ *                                                                              *
+ * Author: Mahmoud Bayoumi                                                      *
+ *                                                                              *
  ********************************************************************************/
-
 
 #ifndef STD_TYPES_H_
 #define STD_TYPES_H_
 
 /********************************************************************************
- *			 LOCAL MACROS CONSTANT\FUNCTION 			*
+ *                          LOCAL MACROS CONSTANT\FUNCTION                      *
  ********************************************************************************/
 
 /* Boolean Data Type */
@@ -25,35 +24,52 @@ typedef unsigned char boolean;
 
 /* Boolean Values */
 #ifndef FALSE
-#define FALSE       (0u)
+#define FALSE           (0u)
 #endif
 
 #ifndef TRUE
-#define TRUE        (1u)
+#define TRUE            (1u)
 #endif
 
-#define LOGIC_HIGH        (1u)
-#define LOGIC_LOW         (0u)
+#define STD_HIGH        (1u)
+#define STD_LOW         (0u)
 
-#define NULL_PTR    ((void*)0)
+#define STD_ACTIVE      (1u)
+#define STD_SUSPENDED   (0u)
 
-typedef unsigned char         uint8;          /*           0 .. 255              */
-typedef signed char           sint8;          /*        -128 .. +127             */
+#define STD_ON          (1u)
+#define STD_OFF         (0u)
 
-typedef unsigned short        uint16;         /*           0 .. 65535            */
-typedef signed short          sint16;         /*      -32768 .. +32767           */
+#define STD_ENABLE      (1u)
+#define STD_DISABLE     (0u)
 
-typedef unsigned long         uint32;         /*           0 .. 4294967295       */
-typedef signed long           sint32;         /* -2147483648 .. +2147483647      */
+#define NULL_PTR ((void *)0)
 
-typedef unsigned long long    uint64;         /*       0 .. 18446744073709551615  */
-typedef signed long long      sint64;         /* -9223372036854775808 .. 9223372036854775807 */
+typedef unsigned char uint8; /*           0 .. 255              */
+typedef signed char sint8;   /*        -128 .. +127             */
 
-typedef float                 float32;
-typedef double                float64;
+typedef unsigned short uint16; /*           0 .. 65535            */
+typedef signed short sint16;   /*      -32768 .. +32767           */
+
+typedef unsigned long uint32; /*           0 .. 4294967295       */
+typedef signed long sint32;   /* -2147483648 .. +2147483647      */
+
+typedef unsigned long long uint64; /*       0 .. 18446744073709551615  */
+typedef signed long long sint64;   /* -9223372036854775808 .. 9223372036854775807 */
+
+typedef float float32;
+typedef double float64;
+
+typedef enum
+{
+    E_OK,
+    E_NOT_OK
+}STD_ReturnType;
+
+typedef void(*ptr2FunctionType)(void);
 
 #endif /* STD_TYPE_H_ */
 
 /********************************************************************************
- *			   END OF FILE : std_types.h				*
+ *                              END OF FILE : std_types.h                       *
  ********************************************************************************/
