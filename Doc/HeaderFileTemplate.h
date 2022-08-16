@@ -1,19 +1,21 @@
-/*******************************************************************************
- *                            * FILE DESCRIPTION *                             *
- *                            ********************                             *
- *                                                                             *
- * \file : FileName.h                                                          *
- *                                                                             *
- * \brief :                                                                    *
- *                                                                             *
- * \details :                                                                  *
- *                                                                             *
- * Author: Mahmoud Bayoumi                                                     *
- *                                                                             *
- *******************************************************************************/
+/********************************************************************************
+ *                            * FILE DESCRIPTION *                              *
+ *                            ********************                              *
+ *                                                                              *
+ *      File        : File:  <Write File Name>                                  *
+ *                                                                              *
+ *      Component   : -                                                         *
+ *                                                                              *
+ *      Module      : -                                                         *
+ *                                                                              *
+ *      Description : <Write File DESCRIPTION here>                             *
+ *                                                                              *
+ *      Author      : Mahmoud Bayoumi                                           *
+ *                                                                              *
+ ********************************************************************************/
 
-#ifndef <FileName_H>
-#define <FileName_H>
+#ifndef <FILE_NAME_H>
+#define <FILE_NAME_H>
 
 ${filecomment}
 #ifndef ${include_guard_symbol}
