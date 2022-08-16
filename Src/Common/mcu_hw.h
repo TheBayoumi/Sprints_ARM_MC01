@@ -2,7 +2,7 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : mcu_hw.h                                               *
+ *      File        : mcu_hw.h                                 	                *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
