@@ -2,13 +2,13 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : IntCtrl_Types.h                                           *
+ *      File        : IntCtrl_Tyoes.h                                           *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
- *      Module      : -                                                         *
+ *      Module      : IntCtrl                                                   *
  *                                                                              *
- *      Description : <Write File DESCRIPTION here>                             *
+ *      Description : Header file for NVIC module                               *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
@@ -29,9 +29,9 @@
 
 typedef uint8 IntCtrl_Priority_level;
 
-typedef enum
+/* typedef enum
 {
-    RESET = 0, /* Reset should start by 1 and increment as the vector number does */
+    RESET = 0, 
     NMI = 1,
     HARD_FAULT = 2,
     MEMORY_MANAGEMENT_FAULT = 3,
@@ -41,7 +41,7 @@ typedef enum
     DEBUG = 7,
     PENDSV = 8,
     SYSTICK = 9
-} IntCtrl_Exception_Type;
+} IntCtrl_Exception_Type; */
 
 typedef enum
 {
@@ -55,7 +55,7 @@ typedef enum
     DEBUG_Monitor = 12,
     PENDSV = 14,
     SYSTICK = 15
-} IntCtrl_Exception_Type1;
+} IntCtrl_Exception_Type;
 
 typedef enum
 {
@@ -149,6 +149,6 @@ typedef struct
 
  #endif  /*  INTCTRL_TYPES_H_  */
 /********************************************************************************
- *                           END OF FILE : FileName.c                           *
+ *                        END OF FILE : IntCtrl_types.h                         *
  ********************************************************************************/
  

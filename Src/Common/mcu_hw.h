@@ -180,29 +180,30 @@ typedef struct
 
 #define CORTEXM4_PERI_BASE_ADDRESS				0xE000E000
 
-#define APINT									*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C))
-#define INTCTRL									*((volatile INTCTRL_Tag*)(CORTEXM4_PERI_BASE_ADDRESS+0xD04))
+#define APINT									(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD0C)))
+#define INTCTRL									(*((volatile INTCTRL_Tag*)(CORTEXM4_PERI_BASE_ADDRESS+0xD04)))
 
-#define NVIC_EN0 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x100))
-#define NVIC_EN1 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x104))
-#define NVIC_EN2 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x108))
-#define NVIC_EN3 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x10C))
+#define NVIC_EN0 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x100)))
+#define NVIC_EN1 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x104)))
+#define NVIC_EN2 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x108)))
+#define NVIC_EN3 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x10C)))
+#define NVIC_EN4 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x110)))
 
-#define NVIC_DIS0 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x180))
-#define NVIC_DIS1 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x184))
-#define NVIC_DIS2 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x188))
-#define NVIC_DIS3 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x18C))
-#define NVIC_DIS4 								*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x190))
+#define NVIC_DIS0 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x180)))
+#define NVIC_DIS1 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x184)))
+#define NVIC_DIS2 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x188)))
+#define NVIC_DIS3 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x18C)))
+#define NVIC_DIS4 								(*((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0x190)))
 
-#define NVIC_PRI_X								0X400
+#define NVIC_PRI_X								0x400
 
-#define SYSPRI1 								*((volatile SYSPRI1_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD18))
-#define SYSPRI2 								*((volatile SYSPRI2_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD1C))
-#define SYSPRI3 								*((volatile SYSPRI3_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD20))
+#define SYSPRI1 								(*((volatile SYSPRI1_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD18)))
+#define SYSPRI2 								(*((volatile SYSPRI2_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD1C)))
+#define SYSPRI3 								(*((volatile SYSPRI3_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD20)))
 
-#define SYSHNDCTRL 								*((volatile SYSHNDCTRL_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD24))
+#define SYSHNDCTRL 								(*((volatile SYSHNDCTRL_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0xD24)))
 
-#define STCTRL									*((volatile SysTickCTRL_BF)(CORTEXM4_PERI_BASE_ADDRESS+0x010))
+#define STCTRL									(*((volatile SysTickCTRL_BF*)(CORTEXM4_PERI_BASE_ADDRESS+0x010)))
 
 
 
