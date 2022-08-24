@@ -55,13 +55,15 @@
  *                         GLOBAL DATA TYPES AND STRUCTURE                      *
  ********************************************************************************/
 
-typedef enum
-{
-    E_OK,
-    E_NOT_OK
-}STD_ReturnType;
+typedef uint8 STD_ReturnType;
 
-typedef void(*ptr_STD_ReturnType)(void);
+/* typedef enum
+{ */
+#define E_OK            (0u)
+#define E_NOT_OK        (1u)
+/* }STD_ReturnType; */
+
+/* typedef void(*ptr_STD_ReturnType)(void); */
 
 #endif /* STD_TYPE_H_ */
 

@@ -2,73 +2,67 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : main.h                                                    *
+ *      File        : Service_Types.h                                           *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
- *      Module      : main                                                      *
+ *      Module      : Service_Types                                             *
  *                                                                              *
- *      Description : Source file for the main configuration                    *
+ *      Description : Header file for Service types                             *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
+#ifndef SERVICE_TYPES_H_
+#define SERVICE_TYPES_H_
+
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
-
-#include "main.h"
-
+ 
+#include "std_types.h"
+#include "Gpt.h"
+#include "Dio.h"
+#include "LED.h"
+#include "Button.h"
+ 
 /********************************************************************************
- *                                 GLOBAL DATA                                  *
- ********************************************************************************/
-
-
-/********************************************************************************
- *                         GLOBAL FUNCTIONS PROTOTYPES                          *
- ********************************************************************************/
-
-/********************************************************************************
- *                               GLOBAL FUNCTION                                *
- ********************************************************************************/
-
-/********************************************************************************
-*                                 LOCAL DATA                                    *
+ *                        LOCAL MACROS CONSTANT\FUNCTION                        *
  ********************************************************************************/
  
 /********************************************************************************
- *                          LOCAL FUNCTION PROTOTYPES                           *
+ *                                  LOCAL DATA                                  *
  ********************************************************************************/
  
 /********************************************************************************
- *                               LOCAL FUNCTIONS                                *
+ *                             GLOBAL DATA PROTOTYPE                            *
  ********************************************************************************/
 
-uint32 main (void)
-{
-    /* 
-    Enter The On Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeON = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
+typedef LED_ChannelType Service_Channel;
 
-/* 
-    Enter The OFF Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeOFF = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
+typedef uint16 Service_Time_Type;
 
-    while (1)
-    {
-        Blinking_Start (Blink_Gpt, LED_1,200,TimeON,TimeOFF);
-    }
-    
-    return 0;
-}
+typedef uint8 Service_High_Period;
+
+typedef uint8 Service_Low_Period;
+
+typedef Gpt_Channel_Type Service_Timer_Channel;
 
 /********************************************************************************
- *                           END OF FILE : main.h                               *
+ *                                GLOBAL FUNCTION                               *
  ********************************************************************************/
+
+/********************************************************************************
+ *                                LOCAL FUNCTIONS                               *
+ ********************************************************************************/
+
+/********************************************************************************
+ *                               GLOBAL FUNCTIONS                               *
+ ********************************************************************************/
+
+#endif /* SERVICE_TYPES_H_ */
+/********************************************************************************
+ *                         END OF FILE : Service_Types.h                        *
+ ********************************************************************************/
+ 

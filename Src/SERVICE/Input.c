@@ -2,28 +2,28 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : main.h                                                    *
+ *      File        : Input.c                                                   *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
- *      Module      : main                                                      *
+ *      Module      : Input                                                     *
  *                                                                              *
- *      Description : Source file for the main configuration                    *
+ *      Description : Source file for the Input Module                          *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
+
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "main.h"
+#include "Input.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
-
 
 /********************************************************************************
  *                         GLOBAL FUNCTIONS PROTOTYPES                          *
@@ -32,6 +32,76 @@
 /********************************************************************************
  *                               GLOBAL FUNCTION                                *
  ********************************************************************************/
+
+/********************************************************************************
+ * \Syntax           : Get_NumOfPress                                           *
+ * \Description      : Function to identify the number of Pluse as input        *
+ *                                                                              *
+ * \Sync\Async       : Synchronous                                              *
+ * \Reentrancy       : Reentrant                                                *
+ * \Parameters (in)  : Master_Channel - Service_Channel                         *
+ *                     Master_Status - Service_Channel                          *
+ *                     Slave_Channel - Service_Channel                          *
+ *                     Slave_Status - Service_Channel                           *
+ *                     Button_Attach - Button_AttachType                        *
+ *                                                                              *
+ * \Parameters (out) : None                                                     *
+ * \Return value     : void                                                     *
+ *                                                                              *
+ ********************************************************************************/ 
+uint8 Get_NumOfPress (Service_Channel Master_Channel, Service_Channel Master_Status, Service_Channel Slave_Channel, Service_Channel Slave_Status, Button_AttachType Button_Attach)
+{
+    uint8 Pulse = 0;
+
+    uint32 i = 0;
+
+    LED_Initialize();
+
+    Button_Initialize;
+
+    while (Get_State(Master_Channel, Button_Attach) == Button_Released);
+    
+    LED_ON(Master_Status);
+    
+    for (i = 1250000; i>0; i--);
+
+    LED_OFF(Master_Status);
+
+    while (1)
+    {
+        if (Get_State(Master_Channel, Button_Attach) == Button_Pressed)
+        {
+            LED_ON(Master_Status);
+
+            for (i = 1250000; i>0; i--);
+
+            LED_OFF(Master_Status);
+
+            break;
+        }
+
+        else if (Get_State(Slave_Channel, Button_Attach) == Button_Pressed)
+        {
+            LED_ON(Slave_Status);
+
+            for (i = 1250000; i>0; i--);
+
+            LED_OFF(Slave_Status);
+
+            Pulse++;
+        }
+        
+        else
+        {
+            break;
+        } 
+    }
+
+    for (i = 1250000; i>0; i--);
+
+    return Pulse;
+}
+
 
 /********************************************************************************
 *                                 LOCAL DATA                                    *
@@ -45,30 +115,6 @@
  *                               LOCAL FUNCTIONS                                *
  ********************************************************************************/
 
-uint32 main (void)
-{
-    /* 
-    Enter The On Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeON = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-/* 
-    Enter The OFF Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeOFF = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-    while (1)
-    {
-        Blinking_Start (Blink_Gpt, LED_1,200,TimeON,TimeOFF);
-    }
-    
-    return 0;
-}
-
 /********************************************************************************
- *                           END OF FILE : main.h                               *
+ *                           END OF FILE : Input.c                              *
  ********************************************************************************/

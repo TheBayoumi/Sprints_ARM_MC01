@@ -2,73 +2,56 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : main.h                                                    *
+ *      File        : Port_Lfcg.h                                               *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
- *      Module      : main                                                      *
+ *      Module      : Port Lfcg                                                 *
  *                                                                              *
- *      Description : Source file for the main configuration                    *
+ *      Description : Header File for Port Module User Configurations           *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
+#ifndef PORT_LCFG_H_
+#define PORT_LCFG_H_
+
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "main.h"
+#include "std_types.h"
+#include "Port_Types.h"
+ 
+/********************************************************************************
+ *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
+ ********************************************************************************/
+ 
+ extern const Port_ConfigType PortConfigType;
 
+/********************************************************************************
+ *                                  LOCAL DATA                                  *
+ ********************************************************************************/
+ 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
-
-
+ 
 /********************************************************************************
- *                         GLOBAL FUNCTIONS PROTOTYPES                          *
- ********************************************************************************/
-
-/********************************************************************************
- *                               GLOBAL FUNCTION                                *
- ********************************************************************************/
-
-/********************************************************************************
-*                                 LOCAL DATA                                    *
+ *                           LOCAL FUNCTION PROTOTYPES                          *
  ********************************************************************************/
  
 /********************************************************************************
- *                          LOCAL FUNCTION PROTOTYPES                           *
+ *                                LOCAL FUNCTIONS                               *
+ ********************************************************************************/
+
+/********************************************************************************
+ *                               GLOBAL FUNCTIONS                               *
+ ********************************************************************************/
+
+#endif /* PORT_LCFG_H_ */ 
+/********************************************************************************
+ *                           END OF FILE : Port_Lcfg.h                          *
  ********************************************************************************/
  
-/********************************************************************************
- *                               LOCAL FUNCTIONS                                *
- ********************************************************************************/
-
-uint32 main (void)
-{
-    /* 
-    Enter The On Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeON = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-/* 
-    Enter The OFF Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeOFF = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-    while (1)
-    {
-        Blinking_Start (Blink_Gpt, LED_1,200,TimeON,TimeOFF);
-    }
-    
-    return 0;
-}
-
-/********************************************************************************
- *                           END OF FILE : main.h                               *
- ********************************************************************************/

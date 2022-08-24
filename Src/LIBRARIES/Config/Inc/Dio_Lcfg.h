@@ -2,129 +2,58 @@
  *                            * FILE DESCRIPTION *                              *
  *                            ********************                              *
  *                                                                              *
- *      File        : IntCtrl_Tyoes.h                                           *
+ *      File        : File:  <Write File Name>                                  *
  *                                                                              *
  *      Component   : -                                                         *
  *                                                                              *
- *      Module      : IntCtrl                                                   *
+ *      Module      : -                                                         *
  *                                                                              *
- *      Description : Header file for NVIC module                               *
+ *      Description : <Write File DESCRIPTION here>                             *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
-#ifndef INTCTRL_TYPES_H_
-#define INTCTRL_TYPES_H_
+#ifndef DIO_LCFG_H_
+#define DIO_LCFG_H_
 
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
 #include "std_types.h"
-#include "mcu_hw.h"
+#include "Dio_Types.h"
  
 /********************************************************************************
- *                             GLOBAL DATA STRUCTURE                            *
+ *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
  ********************************************************************************/
+ 
+ #define Number_Configured_Channels                 5u
 
-typedef uint8 IntCtrl_Priority_level;
+/* Index channel in sort of array of structure */
+ #define Dio_Config_LED1_Channel_ID                 (uint8)0x00
+ #define Dio_Config_LED2_Channel_ID                 (uint8)0x01
+ #define Dio_Config_LED3_Channel_ID                 (uint8)0x02
 
-/* typedef enum
-{
-    RESET = 0, 
-    NMI = 1,
-    HARD_FAULT = 2,
-    MEMORY_MANAGEMENT_FAULT = 3,
-    BUS_FAULT = 4,
-    USAGE_FAULT = 5,
-    SVCALL = 6,
-    DEBUG = 7,
-    PENDSV = 8,
-    SYSTICK = 9
-} IntCtrl_Exception_Type; */
+ #define Dio_Config_SWITCH1_Channel_ID              (uint8)0x03
+ #define Dio_Config_SWITCH2_Channel_ID              (uint8)0x04
 
-typedef enum
-{
-    RESET = 1, /* Reset should start by 1 and increment as the vector number does */
-    NMI = 2,
-    HARD_FAULT = 3,
-    MEMORY_MANAGEMENT_FAULT = 4,
-    BUS_FAULT = 5,
-    USAGE_FAULT = 6,
-    SVCALL = 11,
-    DEBUG_Monitor = 12,
-    PENDSV = 14,
-    SYSTICK = 15
-} IntCtrl_Exception_Type;
+/* Configurations of Port ID */
+ #define Dio_Config_LED1_Port                       (Dio_PortType)PORT_F
+ #define Dio_Config_LED2_Port                       (Dio_PortType)PORT_F
+ #define Dio_Config_LED3_Port                       (Dio_PortType)PORT_F
 
-typedef enum
-{
-    /*  (16 - 32)-Bit Timers  */
-    BIT_16_32_TIMER_0A = 19,
-    BIT_16_32_TIMER_0B = 20,
-    
-    BIT_16_32_TIMER_1A = 21,
-    BIT_16_32_TIMER_1B = 22,
-    
-    BIT_16_32_TIMER_2A = 23,
-    BIT_16_32_TIMER_2B = 24,
-    
-    BIT_16_32_TIMER_3A = 35,
-    BIT_16_32_TIMER_3B = 36,
-    
-    BIT_16_32_TIMER_4A = 70,
-    BIT_16_32_TIMER_4B = 71,
-    
-    BIT_16_32_TIMER_5A = 92,
-    BIT_16_32_TIMER_5B = 93,
+ #define Dio_Config_SWITCH1_Port                    (Dio_PortType)PORT_F
+ #define Dio_Config_SWITCH2_Port                    (Dio_PortType)PORT_F
 
-    
-    /*  (32 - 64)-Bit Timers  */
-    BIT_32_64_TIMER_0A = 94,
-    BIT_32_64_TIMER_0B = 95,
-    
-    BIT_32_64_TIMER_1A = 96,
-    BIT_32_64_TIMER_1B = 97,
+/* Configurations of Channel ID */
+ #define Dio_Config_LED1_Channel                    (Dio_PinType)PIN_1
+ #define Dio_Config_LED2_Channel                    (Dio_PinType)PIN_2
+ #define Dio_Config_LED3_Channel                    (Dio_PinType)PIN_3
 
-    BIT_32_64_TIMER_2A = 98,
-    BIT_32_64_TIMER_2B = 99,
+ #define Dio_Config_SWITCH1_Channel                 (Dio_PinType)PIN_4
+ #define Dio_Config_SWITCH2_Channel                 (Dio_PinType)PIN_0
 
-    BIT_32_64_TIMER_3A = 100,
-    BIT_32_64_TIMER_3B = 101,
-
-    BIT_32_64_TIMER_4A = 102,
-    BIT_32_64_TIMER_4B = 103,
-
-    BIT_32_64_TIMER_5A = 104,
-    BIT_32_64_TIMER_5B = 105
-} IntCtrl_Interrupt_Type;
-
-typedef enum
-{
-    EXCEPTION_DISABLE = 0,
-    EXCEPTION_ENABLE = 1
-} IntCtrl_Exception_Mode;
-
-typedef enum 
-{
-    INTERRUPT_DISABLE = 0,
-    INTERRUPT_ENABLE = 1
-} IntCtrl_Interrupt_Mode;
-
-typedef struct
-{
-    IntCtrl_Exception_Type ExceptionID;
-    IntCtrl_Exception_Mode Exception_Mode;
-    IntCtrl_Priority_level Priority_Level;
-} IntCtrl_Exception_ConfigType;
-
-typedef struct
-{
-    IntCtrl_Interrupt_Type InterruptID;
-    IntCtrl_Interrupt_Mode Interrupt_Mode;
-    IntCtrl_Priority_level Priority_Level;
-} IntCtrl_Interrupt_ConfigType;
 
 /********************************************************************************
  *                                  LOCAL DATA                                  *
@@ -133,6 +62,12 @@ typedef struct
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
+ 
+ typedef struct 
+ {
+    Dio_Channel_ConfigType Channels[Number_Configured_Channels];
+ } Dio_Config_Types;
+ 
 
 /********************************************************************************
  *                           LOCAL FUNCTION PROTOTYPES                          *
@@ -146,10 +81,10 @@ typedef struct
  *                               GLOBAL FUNCTIONS                               *
  ********************************************************************************/
 
+extern const Dio_Config_Types ConfigTypes;
 
-
- #endif  /*  INTCTRL_TYPES_H_  */
+#endif /* DIO_LCFG_H_ */ 
 /********************************************************************************
- *                        END OF FILE : IntCtrl_types.h                         *
+ *                           END OF FILE : Dio_Lcfg.h                           *
  ********************************************************************************/
  

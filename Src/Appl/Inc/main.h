@@ -8,22 +8,43 @@
  *                                                                              *
  *      Module      : main                                                      *
  *                                                                              *
- *      Description : Source file for the main configuration                    *
+ *      Description : Header file for the main configuration                    *
  *                                                                              *
  *      Author      : Mahmoud Bayoumi                                           *
  *                                                                              *
  ********************************************************************************/
 
+#ifndef MAIN_H_
+#define MAIN_H_
+
+
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "main.h"
+#include "std_types.h"
+#include "LED.h"
+#include "Button.h"
+#include "Input.h"
+#include "Blink.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
 
+#define LED_1                                           Dio_Config_LED1_Channel_ID
+
+#define LED_2                                           Dio_Config_LED2_Channel_ID
+
+#define LED_3                                           Dio_Config_LED3_Channel_ID
+
+
+#define Buton_1                                         Dio_Config_SWITCH1_Channel_ID
+
+#define Buton_2                                         Dio_Config_SWITCH2_Channel_ID
+
+
+#define Blink_Gpt                                       Timer_0_16_Bit
 
 /********************************************************************************
  *                         GLOBAL FUNCTIONS PROTOTYPES                          *
@@ -45,30 +66,7 @@
  *                               LOCAL FUNCTIONS                                *
  ********************************************************************************/
 
-uint32 main (void)
-{
-    /* 
-    Enter The On Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeON = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-/* 
-    Enter The OFF Time of LED in Seconds
-        1- Press Switch 1 to confirm the time, the blue LED will blink as confirmation.
-        2- Press Switch 2 to increment the number of seconds, the green LED will blink with every press
-    */
-    uint8 TimeOFF = Get_NumOfPress (Buton_1, LED_2, Buton_2,LED_3,Pull_UP);
-
-    while (1)
-    {
-        Blinking_Start (Blink_Gpt, LED_1,200,TimeON,TimeOFF);
-    }
-    
-    return 0;
-}
-
+#endif /* MAIN_H_ */
 /********************************************************************************
  *                           END OF FILE : main.h                               *
  ********************************************************************************/
