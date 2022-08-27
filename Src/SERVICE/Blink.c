@@ -19,11 +19,18 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "Blink.h"
+#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/SERVICE/Inc/Blink.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
+
+
+void Blinking_CallBack(void)
+{
+    LED_Toggle(DeviceChannel);
+    Flag = 1;
+}
 
 
 /********************************************************************************
@@ -61,13 +68,13 @@ void Blinking_Start(Service_Timer_Channel TimerChannel, Service_Channel DeviceCh
     TimerChannel = TimerChannel;
 
     
-    Gpt_Config_Type.GptChannel[TimerChannel].Gpt_EnableType = Gpt_Enable;
+    Gpt_Config_Types.GptChannel[TimerChannel].Gpt_IsEnabled = Gpt_Enable;
 
-    Gpt_Config_Type.GptChannel[TimerChannel].Gpt_Mode = Gpt_Channel_OneShot_Mode;
+    Gpt_Config_Types.GptChannel[TimerChannel].Gpt_Mode = Gpt_Channel_OneShot_Mode;
 
-    Gpt_Config_Type.GptChannel[TimerChannel].Gpt_Notify = Blinking_CallBack;
+    Gpt_Config_Types.GptChannel[TimerChannel].Gpt_Notify = Blinking_CallBack;
 
-    Gpt_Initialize(&Gpt_Config_Type.GptChannel[TimerChannel]);;
+    Gpt_Initialize(&Gpt_Config_Types.GptChannel[TimerChannel]);;
 
     Service_Timer_Channel Period = 0;
 
@@ -148,12 +155,6 @@ void Blinking_Stop (Service_Channel DeviceChannel)
 /********************************************************************************
  *                               LOCAL FUNCTIONS                                *
  ********************************************************************************/
-
-void Blinking_CallBack(void)
-{
-    LED_Toggle(DeviceChannel);
-    Flag = 1;
-}
 
 /********************************************************************************
  *                           END OF FILE : Blink.c                              *

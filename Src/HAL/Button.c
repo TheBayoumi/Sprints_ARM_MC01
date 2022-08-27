@@ -19,7 +19,7 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "Button.h"
+#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/HAL/Inc/Button.h"
 
 /********************************************************************************
  *                                GLOBAL FUNCTION                               *
@@ -55,6 +55,9 @@ void Button_Initialize (void)
  ********************************************************************************/
 Button_State Get_State (Button_ChannelType ButtonChannel, Button_AttachType ButtonAttach)
 {
+		
+		uint32 i = 0;
+		
     Dio_Level_Type Level = Dio_Level_LOW;
 
     if (ButtonAttach == Pull_UP)
@@ -67,7 +70,7 @@ Button_State Get_State (Button_ChannelType ButtonChannel, Button_AttachType Butt
     
         if (Dio_ReadChannel(ButtonChannel) == Level)
         {
-            for (uint32 i = 0; i < 2500; i++);
+            for (i = 0; i < 2500; i++);
 
             if (Dio_ReadChannel(ButtonChannel) == Level)
             {

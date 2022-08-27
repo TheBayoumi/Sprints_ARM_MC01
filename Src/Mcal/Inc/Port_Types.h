@@ -21,8 +21,8 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
  
- #include "std_types.h"
- #include "mcu_hw.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
@@ -104,23 +104,6 @@ typedef enum
 
 typedef struct 
 {
-    Port_PortType Port_Type;
-    Port_PinType Pin_Type;
-    Port_ChannelMode Is_Enabled;
-    Port_PinDirectionType Pin_Direction_Type;
-    Port_PinLevelType Pin_Level_Type;
-    Port_PinModeType Pin_Mode_Type;
-    Port_PinInternalAttachType Pin_InternalAttach_Type;
-    Port_PinOutputCurrentType Pin_OutputCurrent_Type;
-} Port_Pin_ConfigType;
-
-typedef struct 
-{
-    Port_Pin_ConfigType PinConfigType[Total_Pin_Num_In_Ports];
-} Port_ConfigType;
-
-typedef struct 
-{
     uint32 GPIO_PortA                           :1;
     uint32 GPIO_PortB                           :1;
     uint32 GPIO_PortC                           :1;
@@ -145,6 +128,23 @@ typedef struct
     uint32 L_Byte                               :8;
     uint32                                      :24;
 } GPIO_One_Byte_BF;
+
+typedef struct 
+{
+    Port_PortType Port_Type;
+    Port_PinType Pin_Type;
+    Port_ChannelMode Is_Enabled;
+    Port_PinDirectionType Pin_Direction_Type;
+    Port_PinLevelType Pin_Level_Type;
+    Port_PinModeType Pin_Mode_Type;
+    Port_PinInternalAttachType Pin_InternalAttach_Type;
+    Port_PinOutputCurrentType Pin_OutputCurrent_Type;
+} Port_Pin_ConfigType;
+
+typedef struct 
+{
+    Port_Pin_ConfigType PinConfigType[Total_Pin_Num_In_Ports];
+} Port_ConfigType;
 
 /********************************************************************************
  *                           LOCAL FUNCTION PROTOTYPES                          *

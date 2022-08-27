@@ -19,8 +19,8 @@
  ********************************************************************************/
  
  #include "Port.h"
- #include "mcu_hw.h"
- #include "common_macros.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/common_macros.h"
  
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *
@@ -139,7 +139,7 @@ void Port_Initalize(const Port_ConfigType *ConfigPTR)
 
             CLEAR_BIT ( *(volatile uint32*) ((volatile uint8*)PortPTR + GPIOAFSEL_OFFSET), ConfigPTR ->PinConfigType[Pin].Pin_Type);
 
-            *(volatile uint32*)((volatile uint8)PortPTR + GPIOPCTL_OFFSET) &= ~ (0x0000000F << (ConfigPTR ->PinConfigType[Pin].Pin_Type *4));
+					  *(volatile uint32*)((volatile uint8*)PortPTR + GPIOPCTL_OFFSET) &= ~ (0x0000000F << (ConfigPTR ->PinConfigType[Pin].Pin_Type *4));
             
             SET_BIT  ( *(volatile uint32*) ((volatile uint8*)PortPTR + GPIODEN_OFFSET), ConfigPTR ->PinConfigType[Pin].Pin_Type);
             break;
@@ -157,7 +157,7 @@ void Port_Initalize(const Port_ConfigType *ConfigPTR)
 
             CLEAR_BIT (*(volatile uint32*) ((volatile uint8*)PortPTR + GPIOAFSEL_OFFSET), ConfigPTR ->PinConfigType[Pin].Pin_Type);
 
-            *(volatile uint32*)((volatile uint8)PortPTR + GPIOPCTL_OFFSET) &= ~ (0x0000000F << (ConfigPTR ->PinConfigType[Pin].Pin_Type *4));
+            *(volatile uint32*)((volatile uint8*)PortPTR + GPIOPCTL_OFFSET) &= ~ (0x0000000F << (ConfigPTR ->PinConfigType[Pin].Pin_Type *4));
             
             SET_BIT   (*(volatile uint32*) ((volatile uint8*)PortPTR + GPIODEN_OFFSET), ConfigPTR ->PinConfigType[Pin].Pin_Type);
             break;

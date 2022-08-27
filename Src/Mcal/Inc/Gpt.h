@@ -23,10 +23,8 @@
  ********************************************************************************/
  
 #include "std_types.h"
-#include "mcu_hw.h"
-#include "common_macros.h"
 #include "Gpt_Types.h"
-#include "IntCtrl.h"
+#include "Gpt_Lcfg.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *

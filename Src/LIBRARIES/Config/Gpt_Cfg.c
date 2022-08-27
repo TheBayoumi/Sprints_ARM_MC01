@@ -18,7 +18,7 @@
  *                                    INCLUDES                                  *
  ********************************************************************************/
  
-#include "Gpt_Lcfg.h"
+#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Config/Inc/Gpt_Lcfg.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
@@ -44,23 +44,6 @@
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
- 
- Gpt_ConfigType Gpt_Config_Type =
- {
-    Timer_0_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_0,0,
-    Timer_1_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_1,0,
-    Timer_2_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_2,0,
-    Timer_3_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_3,0,
-    Timer_4_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_4,0,
-    Timer_5_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_5,0,
-    Timer_0_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_6,0,
-    Timer_1_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_7,0,
-    Timer_2_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_8,0,
-    Timer_3_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_9,0,
-    Timer_4_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_10,0,
-    Timer_5_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_11,0
-
- };
 
 uint32 Timer_0_Counter = 0;
 
@@ -284,9 +267,9 @@ void Timer_0A_Handler ()
 {
     GPTMICR (Gpt_Timer0_16Bit_BASE_ADDRESS).TATOCINT = 1;
 
-    if (Gpt_Config_Type.GptChannel[0].Gpt_Notify != NULL_PTR)
+    if (Gpt_Config_Types.GptChannel[0].Gpt_Notify != NULL_PTR)
     {
-        Gpt_Config_Type.GptChannel[0].Gpt_Notify();
+        Gpt_Config_Types.GptChannel[0].Gpt_Notify();
     }
     
 
@@ -296,9 +279,9 @@ void Timer_1A_Handler ()
 {
     GPTMICR (Gpt_Timer1_16Bit_BASE_ADDRESS).TATOCINT = 1;
 
-    if (Gpt_Config_Type.GptChannel[0].Gpt_Notify != NULL_PTR)
+    if (Gpt_Config_Types.GptChannel[0].Gpt_Notify != NULL_PTR)
     {
-        Gpt_Config_Type.GptChannel[0].Gpt_Notify();
+        Gpt_Config_Types.GptChannel[0].Gpt_Notify();
     }
 }
 
@@ -306,6 +289,23 @@ void Timer_1A_Handler ()
  *                               GLOBAL FUNCTIONS                               *
  ********************************************************************************/
  
+Gpt_ConfigType Gpt_Config_Types =
+{
+    Timer_0_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_0,0,
+    Timer_1_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_1,0,
+    Timer_2_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_2,0,
+    Timer_3_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_3,0,
+    Timer_4_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_4,0,
+    Timer_5_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_5,0,
+    Timer_0_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_6,0,
+    Timer_1_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_7,0,
+    Timer_2_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_8,0,
+    Timer_3_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_9,0,
+    Timer_4_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_10,0,
+    Timer_5_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_11,0,
+
+};
+
 /********************************************************************************
  * \Syntax           : std_ReturnType FunctionName(AnyType parameterName)       *
  * \Description      : Describe this service                                    *

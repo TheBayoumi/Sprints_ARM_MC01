@@ -14,8 +14,8 @@
  *                                                                              *
  ********************************************************************************/
 
-#ifndef GPT_TYPES_H
-#define GPT_TYPES_H
+#ifndef GPT_TYPES_H_
+#define GPT_TYPES_H_
 
 /********************************************************************************
  *                                   INCLUDES                                   *
@@ -23,13 +23,12 @@
 
 #include "std_types.h"
 #include "IntCtrl_Types.h"
-#include "Gpt_Lcfg.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
  ********************************************************************************/
  
- #define Total_Numbers_Timer                12u
+ #define Total_Numbers_Timer    			             12u
 
  #define Gpt_Timer0_16Bit_BASE_ADDRESS                   0x40030000
  #define Gpt_Timer1_16Bit_BASE_ADDRESS                   0x40031000
@@ -291,8 +290,8 @@ typedef uint8 Gpt_PreDeff_TimerType;
 
 typedef struct
 {
-    Gpt_ChannelConfigType GptChannel[Total_Numbers_Timer];
-} Gpt_ConfigType;
+    Gpt_ChannelConfigType GptChannel [Total_Numbers_Timer];
+}Gpt_ConfigType;
 
 /********************************************************************************
  *                           LOCAL FUNCTION PROTOTYPES                          *
@@ -307,7 +306,7 @@ typedef struct
  ********************************************************************************/ 
 
  
- #endif /* GPT_TYPES_H */
+ #endif /* GPT_TYPES_H_ */
 /********************************************************************************
  *                           END OF FILE : Gpt_Types.h                          *
  ********************************************************************************/

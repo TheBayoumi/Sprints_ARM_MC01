@@ -19,7 +19,7 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "Input.h"
+#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/SERVICE/Inc/Input.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
@@ -57,7 +57,7 @@ uint8 Get_NumOfPress (Service_Channel Master_Channel, Service_Channel Master_Sta
 
     LED_Initialize();
 
-    Button_Initialize;
+    Button_Initialize();
 
     while (Get_State(Master_Channel, Button_Attach) == Button_Released);
     

@@ -45,7 +45,7 @@
  *                               LOCAL FUNCTIONS                                *
  ********************************************************************************/
 
-uint32 main (void)
+int main (void)
 {
     /* 
     Enter The On Time of LED in Seconds

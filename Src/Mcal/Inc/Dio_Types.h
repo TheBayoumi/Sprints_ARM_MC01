@@ -21,8 +21,8 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
  
- #include "std_types.h"
- #include "mcu_hw.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
+ #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
  #include "Port_Types.h"
 
 /********************************************************************************

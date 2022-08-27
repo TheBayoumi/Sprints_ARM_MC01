@@ -81,7 +81,7 @@
  *                               GLOBAL FUNCTIONS                               *
  ********************************************************************************/
 
-extern const Dio_Config_Types ConfigTypes;
+extern Dio_Config_Types ConfigTypes;
 
 #endif /* DIO_LCFG_H_ */ 
 /********************************************************************************

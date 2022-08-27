@@ -19,7 +19,6 @@
  *                                   INCLUDES                                   *
  ********************************************************************************/
 
-#include "std_types.h"
 #include "Dio_Lcfg.h" 
  
 /********************************************************************************
@@ -34,7 +33,7 @@
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
  
- const Dio_Config_Types ConfigType ={
+Dio_Config_Types ConfigType ={
     Dio_Config_LED1_Port, Dio_Config_LED1_Channel,          /* PF1 = LED 1 */
     Dio_Config_LED2_Port, Dio_Config_LED2_Channel,          /* PF2 = LED 2 */
     Dio_Config_LED3_Port, Dio_Config_LED3_Channel,          /* PF3 = LED 3 */

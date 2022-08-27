@@ -18,7 +18,12 @@
  *                                   INCLUDES                                   *
  ********************************************************************************/
  
+#include "mcu_hw.h"
+#include "common_macros.h"
 #include "Gpt.h"
+#include "IntCtrl.h"
+#include "Gpt_Types.h"
+#include "std_types.h"
 
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *
@@ -62,14 +67,15 @@
  ********************************************************************************/ 
 void Gpt_Initialize ( const Gpt_ChannelConfigType* ConfigPTR)
 {
+		uint8 x;
     if (ConfigPTR ->Gpt_IsEnabled == Gpt_Disable)
     {
         return;
     }
 
     /* Disable all Interrupts to finish initialization */
-    INTERRUPT_DISABLE;
-
+    DISABLE_INTERRUPTS
+		
     volatile uint8 *ChannelPTR = NULL_PTR;
 
     volatile Gpt_Timer_InterruptType InterruptID = 0;
@@ -180,7 +186,7 @@ void Gpt_Initialize ( const Gpt_ChannelConfigType* ConfigPTR)
     GPTMIMR(ChannelPTR).TATOIM = 1;
 
     /* Enable Interrupts */
-    INTERRUPT_ENABLE;
+    ENABLE_INTERRUPTS
 }
 
 /********************************************************************************
@@ -196,7 +202,7 @@ void Gpt_Initialize ( const Gpt_ChannelConfigType* ConfigPTR)
  ********************************************************************************/
 void Gpt_EnableNotify(Gpt_Channel_Type Gpt_Channel_ID)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
@@ -288,7 +294,7 @@ void Gpt_EnableNotify(Gpt_Channel_Type Gpt_Channel_ID)
  ********************************************************************************/
 void Gpt_DisableNotify(Gpt_Channel_Type Gpt_Channel_ID)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
@@ -382,7 +388,7 @@ void Gpt_DisableNotify(Gpt_Channel_Type Gpt_Channel_ID)
  ********************************************************************************/
 void Gpt_StartTimer (Gpt_Channel_Type Gpt_Channel_ID, Gpt_ValueType Gpt_Value)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
@@ -490,7 +496,7 @@ void Gpt_StartTimer (Gpt_Channel_Type Gpt_Channel_ID, Gpt_ValueType Gpt_Value)
  ********************************************************************************/
 void Gpt_StopTimer (Gpt_Channel_Type Gpt_Channel_ID)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
@@ -567,7 +573,7 @@ void Gpt_StopTimer (Gpt_Channel_Type Gpt_Channel_ID)
  ********************************************************************************/
 Gpt_ValueType Gpt_GetTimeElapsed (Gpt_Channel_Type Gpt_Channel_ID)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
@@ -657,7 +663,7 @@ Gpt_ValueType Gpt_GetTimeElapsed (Gpt_Channel_Type Gpt_Channel_ID)
 
         return Elapsed_Time;
     }
-    return;
+    return 0;
 }
 
 /********************************************************************************
@@ -673,7 +679,7 @@ Gpt_ValueType Gpt_GetTimeElapsed (Gpt_Channel_Type Gpt_Channel_ID)
  ********************************************************************************/
 Gpt_ValueType Gpt_GetTimeRemaining (Gpt_Channel_Type Gpt_Channel_ID)
 {
-    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Type.GptChannel[Gpt_Channel_ID]);
+    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
