@@ -21,8 +21,7 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
+#include "std_types.h"
  
 /********************************************************************************
  *                             GLOBAL DATA STRUCTURE                            *
@@ -106,7 +105,7 @@ typedef enum
     EXCEPTION_ENABLE = 1
 } IntCtrl_Exception_Mode;
 
-typedef enum 
+typedef enum
 {
     INTERRUPT_DISABLE = 0,
     INTERRUPT_ENABLE = 1

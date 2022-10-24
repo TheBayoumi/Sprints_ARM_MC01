@@ -19,7 +19,9 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/SERVICE/Inc/Blink.h"
+#include "Gpt.h"
+#include "Blink.h"
+#include "common_macros.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
@@ -70,7 +72,7 @@ void Blinking_Start(Service_Timer_Channel TimerChannel, Service_Channel DeviceCh
     
     Gpt_Config_Types.GptChannel[TimerChannel].Gpt_IsEnabled = Gpt_Enable;
 
-    Gpt_Config_Types.GptChannel[TimerChannel].Gpt_Mode = Gpt_Channel_OneShot_Mode;
+    Gpt_Config_Types.GptChannel[TimerChannel].Gpt_Mode = Gpt_Channel_Continous_Mode;
 
     Gpt_Config_Types.GptChannel[TimerChannel].Gpt_Notify = Blinking_CallBack;
 
@@ -118,7 +120,7 @@ void Blinking_Start(Service_Timer_Channel TimerChannel, Service_Channel DeviceCh
             
         Flag = 0;
             
-        Time = Time - Period;
+        Time -= Period;
     }
 }
 

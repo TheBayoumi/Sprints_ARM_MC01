@@ -18,9 +18,11 @@
  *                                   INCLUDES                                   *
  ********************************************************************************/
  
- #include "Port.h"
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/common_macros.h"
+#include "Port.h"
+#include "mcu_hw.h"
+#include "std_types.h"
+#include "Port_Types.h"
+#include "common_macros.h"
  
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *
@@ -85,43 +87,44 @@ void Port_Initalize(const Port_ConfigType *ConfigPTR)
         {
         case PORT_A:
             PortPTR = (volatile uint32*)PortA_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortA =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortA = 1;
         break;
 
         case PORT_B:
             PortPTR = (volatile uint32*)PortB_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortB =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortB = 1;
         break;
 
         case PORT_C:
             PortPTR = (volatile uint32*)PortC_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortC =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortC = 1;
         break;
 
         case PORT_D:
             PortPTR = (volatile uint32*)PortD_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortD =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortD = 1;
         break;
 
         case PORT_E:
             PortPTR = (volatile uint32*)PortE_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortE =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortE = 1;
         break;
 
         case PORT_F:
             PortPTR = (volatile uint32*)PortF_BASE_ADDRESS;
-            SysCtrl_RCGCGPIO.BF.GPIO_PortF =1;
+            SysCtrl_RCGCGPIO.BF.GPIO_PortF = 1;
         break;
         }
 
-        if ( ((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_D) && (ConfigPTR ->PinConfigType[Pin].Pin_Type==PIN_7)) || ((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_F) && (ConfigPTR ->PinConfigType[Pin].Pin_Type==PIN_0)) )
-        {
-            (*(volatile uint32*)((volatile uint8*)PortPTR + GPIOCR_OFFSET)) = 0x4C4F434B;
+        //if ( ((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_D) && (ConfigPTR ->PinConfigType[Pin].Pin_Type==PIN_7)) 
+					//|| ((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_F) && (ConfigPTR ->PinConfigType[Pin].Pin_Type==PIN_0)) )
+        //{
+            //(*(volatile uint32*)((volatile uint8*)PortPTR + GPIOCR_OFFSET)) = 0x4C4F434B;
 
-            SET_BIT (*(volatile uint32*)((volatile uint8*)PortPTR + GPIOCR_OFFSET),ConfigPTR ->PinConfigType[Pin].Pin_Type);
-        }
+          //  SET_BIT (*(volatile uint32*)((volatile uint8*)PortPTR + GPIOCR_OFFSET),ConfigPTR ->PinConfigType[Pin].Pin_Type);
+        //}
 
-        else if (((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_C) && (ConfigPTR ->PinConfigType[Pin].Pin_Type < PIN_4 )))
+         if (((ConfigPTR ->PinConfigType[Pin].Port_Type == PORT_C) && (ConfigPTR ->PinConfigType[Pin].Pin_Type < PIN_4 )))
         {
             /* JTAG/ SWD Pins */
             continue;

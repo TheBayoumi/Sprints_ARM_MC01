@@ -18,12 +18,13 @@
  *                                   INCLUDES                                   *
  ********************************************************************************/
  
-#include "mcu_hw.h"
-#include "common_macros.h"
 #include "Gpt.h"
+#include "mcu_hw.h"
 #include "IntCtrl.h"
 #include "Gpt_Types.h"
 #include "std_types.h"
+#include "common_macros.h"
+
 
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *
@@ -165,16 +166,19 @@ void Gpt_Initialize ( const Gpt_ChannelConfigType* ConfigPTR)
     GPTMCTL(ChannelPTR).TAEN = 0;
 
     /* GPTM Configured for One-Shot/Periodic Modes */
-    GPTMCFG(ChannelPTR).GPTMCFG = Periodic_OneShot_Clock;
+    GPTMCFG(ChannelPTR) = 0x00000000;
 
     /* Enable GPTM Timer A Match Interrupt */
     GPTMTAMR(ChannelPTR).TAMIE = 1;
+		
+		/* Enable GPTM Timer A Match Interrupt */
+    GPTMTAMR(ChannelPTR).TAMIE = 1;
 
+		/* Chosse GPTM Timer A Mode */
+    GPTMTAMR(ChannelPTR).TAMR = ConfigPTR ->Gpt_Mode;
+		
     /* Choose GPTM Timer A Count Direction */
     GPTMTAMR(ChannelPTR).TACDIR = ConfigPTR ->Gpt_Direction;
-
-    /* Chosse GPTM Timer A Mode */
-    GPTMTAMR(ChannelPTR).TAMR = ConfigPTR ->Gpt_Mode;
 
     /* Enable GPTM Timer A Interval Load Write */
     GPTMTAMR(ChannelPTR).TAILD = 1;
@@ -388,13 +392,11 @@ void Gpt_DisableNotify(Gpt_Channel_Type Gpt_Channel_ID)
  ********************************************************************************/
 void Gpt_StartTimer (Gpt_Channel_Type Gpt_Channel_ID, Gpt_ValueType Gpt_Value)
 {
-    Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
+    const Gpt_ChannelConfigType* ConfigPTR = &(Gpt_Config_Types.GptChannel[Gpt_Channel_ID]);
 
     volatile uint8 *ChannelPTR = NULL_PTR;
 
     volatile uint8 Timer_Width = 0;
-
-    Gpt_Value = Gpt_Value *F_CPU;
 
     switch (ConfigPTR ->Gpt_ChannelID)
     {
@@ -461,6 +463,9 @@ void Gpt_StartTimer (Gpt_Channel_Type Gpt_Channel_ID, Gpt_ValueType Gpt_Value)
     default:
         break;
     }
+		
+		Gpt_Value = Gpt_Value * F_CPU;
+		
     switch (Timer_Width)
     {
     case 32:

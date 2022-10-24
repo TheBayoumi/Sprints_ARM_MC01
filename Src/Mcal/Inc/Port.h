@@ -20,10 +20,10 @@
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
- 
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Config/Inc/Port_Lcfg.h"
- #include "Port_Types.h"
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
+
+#include "std_types.h" 
+#include "Port_Lcfg.h"
+#include "Port_Types.h"
 
 /********************************************************************************
  *                            GLOBAL FUNCTION PROTOTYPES                        *

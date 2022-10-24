@@ -22,7 +22,8 @@
  *******************************************************************************/
  
  #include "Dio_Lcfg.h"
- #include "common_macros.h"
+ #include "std_types.h"
+ #include "Dio_Types.h"
  
 /********************************************************************************
  *                            GLOBAL FUNCTION PROTOTYPES                        *

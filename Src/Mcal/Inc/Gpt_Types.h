@@ -44,7 +44,7 @@
  #define Gpt_Timer4_32Bit_BASE_ADDRESS                   0x4004E000
  #define Gpt_Timer5_32Bit_BASE_ADDRESS                   0x4004F000
  
- #define GPTMCFG(BASE)                                   (*((volatile Gpt_GPTMCFG_BF*)(BASE+0x000)))
+ #define GPTMCFG(BASE)                                   (*((volatile uint32*)(BASE)))
 
  #define GPTMTAMR(BASE)                                  (*((volatile Gpt_GPTMTAMR_BF*)(BASE+0x004)))
  #define GPTMTBMR(BASE)                                  (*((volatile Gpt_GPTMTBMR_BF*)(BASE+0x008)))
@@ -99,9 +99,9 @@ typedef struct
 
 typedef struct
 {
-    uint32 TAMR                                         :2;
-    uint32 TACMR                                        :1;
-    uint32 TAAMS	                                    :1;
+	uint32 TAMR                                         :2;
+	uint32 TACMR                                        :1;
+	uint32 TAAMS	                                    :1;
 	uint32 TACDIR	                                    :1;
 	uint32 TAMIE	                                    :1;
 	uint32 TAWOT	                                    :1;
@@ -115,9 +115,9 @@ typedef struct
 
 typedef struct
 {
-    uint32 TBMR                                         :2;
-    uint32 TBCMR                                        :1;
-    uint32 TBAMS	                                    :1;
+	uint32 TBMR                                         :2;
+	uint32 TBCMR                                        :1;
+	uint32 TBAMS	                                    :1;
 	uint32 TBCDIR	                                    :1;
 	uint32 TBMIE	                                    :1;
 	uint32 TBWOT	                                    :1;
@@ -131,11 +131,11 @@ typedef struct
 
 typedef struct
 {
-    uint32 TAEN                                        :1;
-    uint32 TASTALL                                     :1;
-    uint32 TAEVENT                                     :2;
-    uint32 RTCEN                                       :1;
-    uint32 TAOTE	                                   :1;
+	uint32 TAEN                                        :1;
+	uint32 TASTALL                                     :1;
+	uint32 TAEVENT                                     :2;
+	uint32 RTCEN                                       :1;
+	uint32 TAOTE	                                   :1;
 	uint32 TAPWML	                                   :1;
 	uint32 		                                       :1;
 	uint32 TBEN		                                   :1;
@@ -167,7 +167,7 @@ typedef struct
 
 typedef struct
 {
-    uint32 TATORIS	                                   :1;
+	uint32 TATORIS	                                   :1;
 	uint32 CAMRIS	                                   :1;
 	uint32 CAERIS	                                   :1;
 	uint32 RTCRIS	                                   :1;
@@ -258,9 +258,9 @@ typedef enum
 
 typedef enum
 {
-    Gpt_Channel_OneShot_Mode = 0x1,
-    Gpt_Channel_Continous_Mode = 0x2,
-	Gpt_Channel_Capture_Mode = 0x3
+    Gpt_Channel_OneShot_Mode = 0x01,
+    Gpt_Channel_Continous_Mode = 0x02,
+		Gpt_Channel_Capture_Mode = 0x03
 } Gpt_Channel_ModeType;
 
 typedef uint64 Gpt_ValueType;

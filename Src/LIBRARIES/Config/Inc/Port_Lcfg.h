@@ -21,8 +21,8 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Port_Types.h"
+#include "std_types.h"
+#include "Port_Types.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *

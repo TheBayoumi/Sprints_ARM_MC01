@@ -19,7 +19,9 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/SERVICE/Inc/Input.h"
+#include "LED.h"
+#include "Input.h"
+#include "common_macros.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *

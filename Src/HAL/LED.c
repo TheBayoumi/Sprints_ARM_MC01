@@ -19,7 +19,9 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/HAL/Inc/LED.h"
+#include "LED.h"
+#include "Port.h"
+#include "std_types.h"
 
 /********************************************************************************
  *                                GLOBAL FUNCTION                               *

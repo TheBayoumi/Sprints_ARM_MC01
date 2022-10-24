@@ -31,11 +31,11 @@
  #define Number_Configured_Channels                 5u
 
 /* Index channel in sort of array of structure */
- #define Dio_Config_LED1_Channel_ID                 (uint8)0x00
- #define Dio_Config_LED2_Channel_ID                 (uint8)0x01
- #define Dio_Config_LED3_Channel_ID                 (uint8)0x02
+ #define Dio_Config_LED1_Channel_ID                 (uint8)0x01
+ #define Dio_Config_LED2_Channel_ID                 (uint8)0x02
+ #define Dio_Config_LED3_Channel_ID                 (uint8)0x03
 
- #define Dio_Config_SWITCH1_Channel_ID              (uint8)0x03
+ #define Dio_Config_SWITCH1_Channel_ID              (uint8)0x00
  #define Dio_Config_SWITCH2_Channel_ID              (uint8)0x04
 
 /* Configurations of Port ID */
@@ -65,7 +65,7 @@
  
  typedef struct 
  {
-    Dio_Channel_ConfigType Channels[Number_Configured_Channels];
+   Dio_Channel_ConfigType Channels[Number_Configured_Channels];
  } Dio_Config_Types;
  
 
@@ -81,7 +81,7 @@
  *                               GLOBAL FUNCTIONS                               *
  ********************************************************************************/
 
-extern Dio_Config_Types ConfigTypes;
+extern const Dio_Config_Types ConfigTypes;
 
 #endif /* DIO_LCFG_H_ */ 
 /********************************************************************************

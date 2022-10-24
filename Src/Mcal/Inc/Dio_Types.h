@@ -20,10 +20,10 @@
 /*******************************************************************************
  *                                   INCLUDES                                  *
  *******************************************************************************/
- 
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
- #include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/mcu_hw.h"
- #include "Port_Types.h"
+
+#include "mcu_hw.h"
+#include "std_types.h"
+#include "Port_Types.h"
 
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
@@ -44,26 +44,26 @@
  *                                 GLOBAL DATA                                  *
  ********************************************************************************/
  
- typedef uint8 Dio_ChannelType;
+typedef uint8 Dio_ChannelType;
 
- typedef Port_PinType Dio_PinType;
+typedef Port_PinType Dio_PinType;
 
- typedef Port_PortType Dio_PortType;
+typedef Port_PortType Dio_PortType;
 
- typedef struct 
- {
-    Dio_PortType Port_ID;
-    Dio_PinType Pin_ID;
- } Dio_Channel_ConfigType;
- 
- typedef enum 
- {
-    Dio_Level_ERROR = -1,
-    Dio_Level_LOW = -0,
-    Dio_Level_HIGH = 1
- } Dio_Level_Type;
+typedef struct 
+{
+   Dio_PortType Port_ID;
+   Dio_PinType Pin_ID;
+} Dio_Channel_ConfigType;
 
- typedef uint8 Dio_Port_LevelType; 
+typedef enum 
+{
+   Dio_Level_ERROR = -1,
+   Dio_Level_LOW = 0,
+   Dio_Level_HIGH = 1
+} Dio_Level_Type;
+
+typedef uint8 Dio_Port_LevelType; 
 
 /********************************************************************************
  *                           LOCAL FUNCTION PROTOTYPES                          *

@@ -17,9 +17,12 @@
 /********************************************************************************
  *                                    INCLUDES                                  *
  ********************************************************************************/
- 
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Config/Inc/Gpt_Lcfg.h"
- 
+#include "Dio.h"
+#include "Gpt.h"
+#include "std_types.h"
+#include "Gpt_Types.h"
+#include "common_macros.h"
+
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *
  ********************************************************************************/
@@ -291,18 +294,18 @@ void Timer_1A_Handler ()
  
 Gpt_ConfigType Gpt_Config_Types =
 {
-    Timer_0_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_0,0,
-    Timer_1_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_1,0,
-    Timer_2_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_2,0,
-    Timer_3_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_3,0,
-    Timer_4_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_4,0,
-    Timer_5_16_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_5,0,
-    Timer_0_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_6,0,
-    Timer_1_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_7,0,
-    Timer_2_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_8,0,
-    Timer_3_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_9,0,
-    Timer_4_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_10,0,
-    Timer_5_32_Bit, Gpt_Disable, Up, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_11,0,
+    Timer_0_16_Bit, Gpt_Enable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_0,0,
+    Timer_1_16_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_1,0,
+    Timer_2_16_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_2,0,
+    Timer_3_16_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_3,0,
+    Timer_4_16_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_4,0,
+    Timer_5_16_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_5,0,
+    Timer_0_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_6,0,
+    Timer_1_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_7,0,
+    Timer_2_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_8,0,
+    Timer_3_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_9,0,
+    Timer_4_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_10,0,
+    Timer_5_32_Bit, Gpt_Disable, Down, 16000000, Gpt_Channel_Continous_Mode, Gpt_Noftification_11,0,
 
 };
 

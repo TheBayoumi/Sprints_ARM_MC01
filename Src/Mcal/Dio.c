@@ -19,6 +19,9 @@
  ********************************************************************************/
  
 #include "Dio.h"
+#include "Dio_Types.h"
+#include "std_types.h"
+#include "common_macros.h"
 
 /********************************************************************************
  *                                GLOBAL FUNCTION                               *
@@ -37,6 +40,11 @@
  *********************************************************************************/
 Dio_Level_Type Dio_ReadChannel (Dio_ChannelType Channel_ID)
 {
+    if (Channel_ID >= Number_Configured_Channels)
+    {
+        return Dio_Level_ERROR;
+    }
+
     switch (ConfigTypes.Channels[Channel_ID].Port_ID)
     {
         case PORT_A:
@@ -109,11 +117,6 @@ Dio_Level_Type Dio_ReadChannel (Dio_ChannelType Channel_ID)
             return Dio_Level_ERROR;
         break;
     }
-
-    if (Channel_ID >= Number_Configured_Channels)
-    {
-        return Dio_Level_ERROR;
-    } 
 }
 
 /*********************************************************************************

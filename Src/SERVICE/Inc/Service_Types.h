@@ -21,11 +21,11 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
  
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Gpt.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Dio.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/HAL/Inc/LED.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/HAL/Inc/Button.h"
+#include "Gpt.h"
+#include "Dio.h"
+#include "LED.h"
+#include "Button.h"
+#include "std_types.h"
  
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *

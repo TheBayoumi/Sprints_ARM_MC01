@@ -25,8 +25,6 @@
 #include "std_types.h"
 #include "LED.h"
 #include "Button.h"
-#include "Input.h"
-#include "Blink.h"
 
 /********************************************************************************
  *                                 GLOBAL DATA                                  *

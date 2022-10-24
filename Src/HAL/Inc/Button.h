@@ -21,9 +21,9 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
  
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/std_types.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Port.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Dio.h"
+#include "std_types.h"
+#include "Port.h"
+#include "Dio.h"
  
 /********************************************************************************
  *                        LOCAL MACROS CONSTANT\FUNCTION                        *

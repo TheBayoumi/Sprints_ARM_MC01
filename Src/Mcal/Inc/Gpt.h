@@ -22,9 +22,9 @@
  *                                   INCLUDES                                   *
  ********************************************************************************/
  
+#include "Gpt_Lcfg.h"
 #include "std_types.h"
 #include "Gpt_Types.h"
-#include "Gpt_Lcfg.h"
  
 /********************************************************************************
  *                        GLOBAL MACROS CONSTANT\FUNCTION                       *

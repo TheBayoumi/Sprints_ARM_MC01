@@ -21,8 +21,8 @@
  *                                    INCLUDES                                  *
  ********************************************************************************/
 
-#include "platform_types.h"
 #include "common_macros.h"
+#include "platform_types.h"
 
 /********************************************************************************
  *                              GLOBAL CONSTANT MACROS                          *

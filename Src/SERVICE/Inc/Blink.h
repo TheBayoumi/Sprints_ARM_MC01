@@ -21,9 +21,7 @@
  *                                   INCLUDES                                  *
  *******************************************************************************/
  
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/MCAL/Inc/Gpt.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/LIBRARIES/Common/common_macros.h"
-#include "D:/Embedded_C/Advanced_Embedded_Systems_EgFWD/Projects/uVisionProject/Sprints_ARM_MC01/Src/SERVICE/Inc/Service_Types.h"
+#include "Service_Types.h"
  
 /********************************************************************************
  *                                 GLOBAL DATA                                  *
